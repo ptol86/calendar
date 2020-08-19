@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import Header from './header/Header';
+import DateSection from "./date-section/DateSection"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       
-      </header>
+      <Header/>
+      <DateSection/>
     </div>
   );
 }
