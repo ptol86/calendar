@@ -4,6 +4,7 @@ import Time from "./Time";
 
 function DateSection() {
   return (
+      <>
     <section className="date-container">
         <div className="day timezone">
         GMT+03
@@ -77,9 +78,9 @@ function DateSection() {
             <div className="day-border"></div>
 
         </div>
-        <Time/>
     </section>
-      
+            <Time/>
+      </>
     
   );
 }

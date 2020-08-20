@@ -2,52 +2,32 @@ import React from 'react';
 import "./datesection.scss";
 
 function Time() {
-    let result = []
-    for (let i = 0; i < 24; i++) {
+    let result = [];
+     for (let i = 0; i <24; i++) {
         result.push(
-            <>
-        <div className="time-container">
-        {`${i} ${i <=12? "AM": "PM"}`}
-        </div>
-        <div className="time-container">
-            
-            
-        </div>
-        <div className="time-container">
-            
-           
-
-        </div>
-        <div className="time-container">
-           
-            
-
-        </div>
-        <div className="time-container">
-           
-           
-
-        </div>
-        <div className="time-container">
-            
-            
-
-        </div>
-        <div className="time-container">
-           
-            
-
-        </div>
-        <div className="time-container">
-           
-           
-
-        </div>
-        </>)
-    }
-    return (
-        result
-  );
+        <>
+            <div className='time-container-1'>
+            <div className='time-1'>
+            {`${i > 0 && i < 24 ? `${i}:00` : ''}`}
+            </div>
+            <div className='time-2'></div>
+            </div>
+            <div className='time-container'></div>
+            <div className='time-container'></div>
+            <div className='time-container'></div>
+            <div className='time-container'></div>
+            <div className='time-container'></div>
+            <div className='time-container'></div>
+            <div className='time-container'></div>
+        </>
+        )
+  }
+  return (
+    <main className="date-container wrapper-scroll">
+            {result}
+    </main>
+    
+  )
 }
 
 export default Time;
