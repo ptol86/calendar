@@ -1,9 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./header.scss";
+import DateSection from "../date-section/DateSection";
+import moment from "moment";
 
 function Header() {
-  return (
     
+    const dateNow = new Date()
+
+    const [currentDate, setCurrentDate] = useState(moment(dateNow).week('week'));
+
+    const [weekStart, setWeekStart] = useState(currentDate.clone().startOf('week'));
+
+    console.log(currentDate);
+    useEffect(() => {
+        console.log(weekStart.format("D/ddd/M/YYYY"))
+    },[weekStart])
+    const today = +(moment(dateNow).format("d"));
+    const getSunday = (dateNow, today) => moment(dateNow).subtract(today, "days").add(7, "days").format("D/ddd/M/YYYY");
+
+    console.log(getSunday(dateNow, today));
+    
+    console.log(weekStart);
+
+    let days = [];
+
+    for (let i = 0; i <= 6; i++) {
+            days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD-ddd"));
+    }
+
+    console.log(days)
+
+    const daysMapped = days.map(day => {
+        return (
+          <div className="day">
+            <span className="day-of-week">{day.split("-")[3].toUpperCase()}</span>
+            <span className="day-number">{day.split("-")[2]}</span>
+            <div className="day-border"></div>
+          </div>
+      )});
+
+    const nextWeek = () => {
+        setWeekStart(
+            
+            weekStart.add(7, "days")
+        
+        );
+    }
+
+    const prevWeek = () =>{
+        alert('hello2');
+    }
+    
+      
+    return (
+    <>
       <header className="header" >
         <div className="header-btn">
             <button className="header-btn-create">
@@ -28,10 +78,10 @@ function Header() {
             </button>
         </div>
         <div className="header-nav">
-            <button className="header-nav-btn">
+            <button className="header-nav-btn" onClick={prevWeek}>
                 <i className="fas fa-angle-left"></i>
             </button>
-            <button className="header-nav-btn">
+            <button className="header-nav-btn" onClick={nextWeek}>
                 <i className="fas fa-angle-right"></i>
             </button>
         </div>
@@ -44,7 +94,8 @@ function Header() {
             </div>
         </div>
       </header>
-    
+      <DateSection daysMapped={daysMapped}/>
+    </>
   );
 }
 

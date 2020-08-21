@@ -1,0 +1,45 @@
+.popup {
+    position: absolute;
+    top: 15vh;
+    z-index: 1;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-form {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 460px;
+    min-height: 448px;
+    padding: 1rem;
+    box-shadow: 2px 2px 38px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background-color: #fff;
+    }
+}
+.popup .popup-form .name-events {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+}
+.popup .popup-form .name-events_btn {
+    display: flex;
+    justify-content: flex-end;
+    border: 0;
+    background-color: transparent;
+    font-size: 24px;
+}
+.popup .popup-form .name-events_input {
+    width: 90%;
+    border: 0;
+    border-bottom: 2px solid #1a73e8;
+    font-size: 18px;
+    font-weight: 500;
+}
+.popup .date-events_img {
+    font-size: 24px;
+    margin-right: 16px;
+}

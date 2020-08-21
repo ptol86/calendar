@@ -57,5 +57,30 @@
     border-bottom: 1px solid #dadce0;
 }
 .wrapper-scroll {
-   grid-template-rows: 5rem;
+    grid-template-rows: 5rem;
+    position: relative;
+    overflow-y: scroll;
+    height: 70vh;
+}
+.wrapper-scroll::-webkit-scrollbar {
+    background: transparent;
+    height: 8px;
+    width: 8px;
+}
+.wrapper-scroll::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #dadce0;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    min-height: 40px;
+}
+
+.scroll {
+    overflow-y: scroll;
+}
+.scroll::-webkit-scrollbar {
+    background: transparent;
+    height: 8px;
+    width: 8px;
 }

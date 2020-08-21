@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './header/Header';
-import DateSection from "./date-section/DateSection"
-// import Time from "./date-section/Time"
+import PopupWindow from "./popup-window/PopupWindow"
 
 function App() {
+
   return (
     <div className="App">
       <Header/>
-      <DateSection/>
       
+      {/* <PopupWindow/> */}
     </div>
   );
 }
