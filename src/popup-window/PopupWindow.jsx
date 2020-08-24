@@ -1,7 +1,12 @@
 import React from "react";
 import "./popup.scss";
 
-const Popup = () => {
+const Popup = ({show}) => {
+  
+  if (!show) {
+    return null;
+  }
+
   return (
     <section className="popup">
       <form className="popup-form">

@@ -35,29 +35,24 @@ const Header = () => {
         </div>
     )});
     
-    const daysMapped = () => {
-        return result;
-    }
-
     const nextWeek = () => {
         setDays([]);
         setWeekStart(weekStart.add(7, "days"))
-        daysMapped();
     }
     
     const prevWeek = () => {
         setDays([]);
         setWeekStart(weekStart.subtract(7, "days"))
-        daysMapped();
     }
 
     const showCurrentWeek = () => {
         setDays([]);
         setWeekStart(currentDateUse);
-        daysMapped();
     };
 
+    const [show, setShowPopUP] = useState(false);
     const showPopUp = () => {
+        setShowPopUP(true);
     }
     
     return (
@@ -115,7 +110,7 @@ const Header = () => {
         </div>
         </header>
         <DateSection daysMapped={result} date={days}/>
-        <PopupWindow />
+        <PopupWindow show={show}/>
         </>
     )
 }
