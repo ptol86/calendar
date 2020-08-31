@@ -1,10 +1,43 @@
 .event {
-    display: flex;
-    width: 100px;
-    height: 50px;
-    background-color: rgb(0, 132, 255);
-    border-radius: 6px;
-    color: yellowgreen;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100px;
+  height: 50px;
+  background-color: rgb(76, 176, 243);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  top: 10px;
+  font-size: 10px;
+}
+.title {
+  margin-bottom: 5px;
+  font-style: Roboto;
+}
+.delete-btn-content {
+  width: 10px;
+  height: 10px;
+}
+
+.button-event-delete {
+  display: flex;
+  position: absolute;
+  border-radius: 8px;
+  height: 50px;
+  top:65px;
+  left: 65px;
+  width: 100px;
+  justify-content: space-around;
+  align-items: center;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  color: #70757a;
+  background-color: #fff;
+  box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.2), -4px 4px 6px -1px rgba(0, 0, 0, 0.2);    
+}
+.delete-btn {
+  font-weight: 600;
+}

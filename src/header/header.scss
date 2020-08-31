@@ -7,6 +7,7 @@
     align-items: center;
     position: relative;
     border-bottom: 1px solid #dadce0;
+    
 
     &-btn {
         margin-left: 1rem;
@@ -27,8 +28,13 @@
         font-weight: 500;
         font-size: 14px;
         background-color: #fff;
-        box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.2), -4px 4px 6px -1px rgba(0, 0, 0, 0.2);    }
-    
+        box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.2), -4px 4px 6px -1px rgba(0, 0, 0, 0.2);    
+        &:hover {
+            background: #f0f2f5;
+            cursor: pointer;
+            
+        }
+    }
     &-btn-img {
         margin-right: 20px;
     }
@@ -42,20 +48,34 @@
         height: 40px;
         width: 100px;
         font-weight: 600;
+        &:hover {
+            background: #f0f2f5;
+            cursor: pointer;
+            
+        }
     }
 
     &-nav {
         display: flex;
         width: 10%;
-        justify-content: center;
+        justify-content: space-around;
     }
 
     &-nav-btn {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
         border: 0;
         background-color: transparent;
         font-size: 25px;
+        &:hover {
+            background: #f0f2f5;
+            cursor: pointer;
+            
+        }
+        
     }
-
+    
     &-date-container {
         display: flex;
         justify-content: space-around;

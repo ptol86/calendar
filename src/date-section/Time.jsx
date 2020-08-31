@@ -1,73 +1,48 @@
 import React from "react";
 import "./datesection.scss";
 import Event from "./Event";
+import moment from "moment";
+import RedLine from "./RedLine"
 
-function Time({week}) {
-    console.log(week)
+const Time = ({week, tasks, onDelete}) => {
 
-    let result = [];
-    console.log(result)
+    const timeNow = moment(new Date()).format('YYYY-MM-DD-ddd-HH');
 
-    const click = (e) => {
-        let element = document.getElementById("2020-08-23-Sun-0:00")
-        console.log(e.target.id)
-        console.log(element.id)
-    }
-    let tasks = [
-        {
-            id: "2020-08-25-Tue-0:00",
-            title: "zalupa",
-
-        },
-        {
-            id: "2020-08-24-Mon-1:00",
-            title: "pizda",
-
-        },
-        {
-            id: "2020-08-23-Sun-2:00",
-            title: "jopa",
-
-        }
-    ]
+    let hours = [];
     for (let i = 0; i <24; i++) {
-        result.push(
-        <>
-            <div className="time-container-1" id={+(+(week[0])+(week[1]))}>
-                <div className="time-1" >
-                {`${i > 0 && i < 24 ? `${i}:00` : ""}`}
-                </div>
-                <div className="time-2"></div>
-            </div>
-            <div className="time-container" onClick={click} id={`${week[0]}-${i >= 0 && i < 24 ? `${i}:00` : ""}`}>
-                {tasks.find(el => el.id === (`${week[0]}-${i >= 0 && i < 24 ? `${i}:00` : ''}`)) ? <Event title={tasks.find(el => el.id === (`${week[0]}-${i >= 0 && i < 24 ? `${i}:00` : ''}`)).title}/> : null}
-            </div>
-            <div className='time-container' id={`${week[1]}-${i >= 0 && i < 24 ? `${i}:00` : ''}`}>
-                {tasks.find(el => el.id === (`${week[1]}-${i >= 0 && i < 24 ? `${i}:00` : ''}`)) ? <Event title={tasks.find(el => el.id === (`${week[1]}-${i >= 0 && i < 24 ? `${i}:00` : ''}`)).title}/> : null}
-            </div>
-            <div className="time-container" id={`${week[2]}-${i >= 0 && i < 24 ? `${i}:00` : ""}`}>
-                {tasks.find(el => el.id === (`${week[2]}-${i >= 0 && i < 24 ? `${i}:00` : ''}`)) ? <Event title={tasks.find(el => el.id === (`${week[2]}-${i >= 0 && i < 24 ? `${i}:00` : ''}`)).title}/> : null}
-            </div>
-            <div className="time-container" id={`${week[3]}-${i >= 0 && i < 24 ? `${i}:00` : ""}`}></div>
-            <div className="time-container" id={`${week[4]}-${i >= 0 && i < 24 ? `${i}:00` : ""}`}></div>
-            <div className="time-container" id={`${week[5]}-${i >= 0 && i < 24 ? `${i}:00` : ""}`}></div>
-            <div className="time-container" id={`${week[6]}-${i >= 0 && i < 24 ? `${i}:00` : ""}`}></div>
-        </>
-        )
+      hours.push( i < 10?`0${i}:00`:`${i}:00`);
     }
-    // tasks.map((el) => {
-    //     if (el.id) {
-    //         let element = document.getElementById(`${el.id}`);
-    //         result.push(element.appendChild('span'); 
-    //     }
-    // })
-
-    return (
-    <main className="date-container wrapper-scroll">
-            {result}
-    </main>
     
-  )
-}
 
+    const renderTasks = (week, hours, timeNow) => { 
+      return hours.map((el) => {
+        const daysOfWeek = week.map(dayOfWeek => {
+            const filtredTasks = tasks.filter(task => task.date === (dayOfWeek.slice(0, -4)) && task.timeStart.slice(0, -3) === el.slice(0, -3));
+            let dayContainerNow = (`${dayOfWeek}-${el}`).slice(0, -3);
+           
+            return (<div className='time-container' value={`${dayOfWeek}-${el}`}>
+                {dayContainerNow === timeNow && <RedLine />}
+                {filtredTasks && filtredTasks.map(task => <Event title={task.title} timeStart={task.timeStart} timeFinish={task.timeFinish} onDelete={onDelete} id={task.id}/>)}
+            </div>)
+      })
+      return (   
+          <>
+          <div className='time-container-1' value={el+'-'+week[0].split('-')[0]}>
+              <div className='time-1' >{el === "00:00"? null : el}</div>
+              <div className='time-2'></div>
+          </div>
+            {daysOfWeek}
+          </>
+      )
+      }
+  )}
+   
+    const result = renderTasks(week, hours, timeNow);
+    return (
+      <main className='date-container wrapper-scroll' >
+          {result}
+      </main>
+    )
+  }
+  
 export default Time;

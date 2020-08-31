@@ -19,8 +19,19 @@
         margin-bottom: .7rem;
     }
     &-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 4rem;
+        width: 4rem;
         font-size: 2.3rem;
         font-weight: 500;
+        border-radius: 50%;
+        &:hover {
+            background: #f0f2f5;
+            cursor: pointer;
+        }
+       
     }
     &-border {
         width: 100%;
@@ -32,12 +43,10 @@
     justify-content: flex-end;
 }
 .time-container {
-    // display: grid;
     border-bottom: 1px solid #dadce0;
     border-left: 1px solid #dadce0;
-    // grid-template-rows: 5rem;
-    // grid-auto-rows: 5rem;
-    // grid-template-columns: 5.8rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    position: relative;
+    display: flex;
     &-1 {
         display: flex;
     }
@@ -82,3 +91,21 @@
     height: 8px;
     width: 8px;
 }
+.redBall {
+    width: 12px;
+    height: 12px;
+    background-color: #ea4335;
+    border-radius: 50%;
+    position: relative;
+    left: -6px;
+    top: 0;
+  }
+.redLine {
+    border: 1.5px solid #ea4335;
+    background-color: #ea4335;
+    width: 100%;
+    margin-top: 3px;
+    position: absolute;
+    top: 0;
+}
+  

@@ -2,21 +2,19 @@ import React from 'react';
 import "./datesection.scss";
 import Time from "./Time";
 
-function DateSection({daysMapped, date}) {
-    console.log(daysMapped)
-    const week = date;
-    return (
+const DateSection = ({result, week, tasks, onDelete}) => {
+  
+  return (
     <>
-    <section className="date-container scroll">
-        <div className="day timezone">
+      <section  className='date-container scroll'>
+        <div className='day timezone'>
         GMT+03
         </div>
-        {daysMapped}
-    </section>
-            <Time week={week}/>
+        {result}
+      </section>
+      <Time week={week} tasks={tasks} onDelete={onDelete}/>
     </>
-    
-  );
+  )
 }
 
-export default DateSection;
+  export default DateSection;
