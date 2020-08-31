@@ -5,15 +5,22 @@ import "./datesection.scss";
 const RedLine = () => {
 
     const [minutesNow, setMinutesNow] = useState(moment(new Date()).format('m'));
-    // console.log(minutesNow)
 
     const style = {top: `${minutesNow}.3px`};
-    console.log(style)
-    const minInterval = setInterval(() => setMinutesNow(moment(new Date()).format('m')), 60000);
 
     useEffect(() => {
-        setInterval(() => setMinutesNow(moment(new Date()).format('m')), 60000);
-
+        const interval = setInterval(() => {
+            setMinutesNow((minutesNow)=> minutesNow + 1)
+        }, 60000);
+        return () => {
+            clearInterval(interval);
+        }
+        // setInterval(() => setMinutesNow(moment(new Date()).format('m')), 60000);
+        // intervalId();
+        // clearInterval(intervalId);
+        // return (()=> {
+            
+        // })
     });
 
     return (
