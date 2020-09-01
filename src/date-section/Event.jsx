@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './event.scss';
-
+import PropTypes from "prop-types";
 
 const Event = ({timeStart, timeFinish, title, onDelete, id}) => {
   let minutes = timeStart.slice(3);
@@ -48,4 +48,13 @@ const Event = ({timeStart, timeFinish, title, onDelete, id}) => {
       </>
   )
 }
+
+Event.propTypes = {
+  timeStart: PropTypes.string,
+  timeFinish: PropTypes.string,
+  title: PropTypes.string,
+  id: PropTypes.string,
+  onDelete: PropTypes.func.isRequired,
+}
+
 export default Event;

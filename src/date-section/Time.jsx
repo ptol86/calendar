@@ -2,7 +2,8 @@ import React, {Fragment} from "react";
 import "./datesection.scss";
 import Event from "./Event";
 import moment from "moment";
-import RedLine from "./RedLine"
+import PropTypes from 'prop-types';
+import RedLine from "./RedLine";
 
 const Time = ({week, tasks, onDelete}) => {
 
@@ -47,6 +48,10 @@ const Time = ({week, tasks, onDelete}) => {
           {result}
       </main>
     )
-  }
-  
+}
+Time.propTypes = {
+  week: PropTypes.array.isRequired,
+  tasks: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired,
+}
 export default Time;

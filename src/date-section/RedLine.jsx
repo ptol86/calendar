@@ -6,7 +6,7 @@ const RedLine = () => {
 
     const [minutesNow, setMinutesNow] = useState(moment(new Date()).format('m'));
 
-    const style = {top: `${minutesNow}.3px`};
+    const style = {top: `${minutesNow * 1.3}px`};
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -15,12 +15,7 @@ const RedLine = () => {
         return () => {
             clearInterval(interval);
         }
-        // setInterval(() => setMinutesNow(moment(new Date()).format('m')), 60000);
-        // intervalId();
-        // clearInterval(intervalId);
-        // return (()=> {
-            
-        // })
+        
     });
 
     return (
